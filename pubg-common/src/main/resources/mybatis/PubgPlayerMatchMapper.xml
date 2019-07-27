@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.ivyxjc.pubg.system.common.dao.PubgPlayerMatchMapper">
-    <resultMap id="PubgPlayerMatchBaseMapper" type="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDTO">
+    <resultMap id="PubgPlayerMatchBaseMapper" type="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDO">
         <result column="PLAYER_ID" jdbcType="VARCHAR" property="playerId"/>
         <result column="MATCH_ID" jdbcType="VARCHAR" property="matchId"/>
         <result column="SHARD_ID" jdbcType="CHAR" property="shardId"

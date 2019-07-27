@@ -6,7 +6,7 @@ import xyz.ivyxjc.pubg.system.common.types.MapName
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.LocalDateTime
 
-class PubgPlayerDTO : BaseEntity() {
+class PubgPlayerDO : BaseEntity() {
 
     lateinit var playerId: String
 
@@ -21,7 +21,7 @@ class PubgPlayerDTO : BaseEntity() {
     var updatedAt: LocalDateTime? = null
 }
 
-class PubgPlayerMatchDTO : BaseEntity() {
+class PubgPlayerMatchDO : BaseEntity() {
     lateinit var matchId: String
 
     lateinit var playerId: String

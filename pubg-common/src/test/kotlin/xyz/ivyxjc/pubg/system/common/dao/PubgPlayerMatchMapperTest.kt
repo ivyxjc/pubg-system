@@ -6,7 +6,7 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
-import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDTO
+import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDO
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -29,10 +29,11 @@ open class PubgPlayerMatchMapperTest {
         )
     }
 
-    private fun checkPubgPlayerMatchList(expect: List<PubgPlayerMatchDTO>, real: List<PubgPlayerMatchDTO>) {
+    private fun checkPubgPlayerMatchList(expect: List<PubgPlayerMatchDO>, real: List<PubgPlayerMatchDO>) {
         Assert.assertEquals(expect.size, real.size)
         val map =
-            expect.stream().collect({ mutableMapOf<String, PubgPlayerMatchDTO>() },
+            expect.stream().collect(
+                { mutableMapOf<String, PubgPlayerMatchDO>() },
                 { container, item ->
                     container[item.matchId] = item
                 }, { a, b ->
@@ -45,17 +46,17 @@ open class PubgPlayerMatchMapperTest {
         }
     }
 
-    private fun checkPubgPlayerMatch(expect: PubgPlayerMatchDTO, real: PubgPlayerMatchDTO) {
+    private fun checkPubgPlayerMatch(expect: PubgPlayerMatchDO, real: PubgPlayerMatchDO) {
         Assert.assertEquals(expect.playerId, real.playerId)
         Assert.assertEquals(expect.shardId, real.shardId)
         Assert.assertEquals(expect.matchId, real.matchId)
     }
 
-    private fun preparePubgPlayerMatch(): List<PubgPlayerMatchDTO> {
+    private fun preparePubgPlayerMatch(): List<PubgPlayerMatchDO> {
         val matchCount = Random.nextInt(20, 100)
         val playerId = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli().toString()
         val res = MutableList(matchCount) {
-            val pubgPlayerMatchDTO = PubgPlayerMatchDTO()
+            val pubgPlayerMatchDTO = PubgPlayerMatchDO()
             pubgPlayerMatchDTO.playerId = playerId
             pubgPlayerMatchDTO.matchId = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli().toString()
             LockSupport.parkNanos(Math.pow(10.0, 6.0).toLong())
@@ -63,7 +64,8 @@ open class PubgPlayerMatchMapperTest {
             pubgPlayerMatchDTO
         }
         val map =
-            res.stream().collect({ mutableMapOf<String, PubgPlayerMatchDTO>() },
+            res.stream().collect(
+                { mutableMapOf<String, PubgPlayerMatchDO>() },
                 { container, item ->
                     container[item.matchId] = item
                 }, { a, b ->

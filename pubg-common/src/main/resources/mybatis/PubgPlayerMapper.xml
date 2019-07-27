@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.ivyxjc.pubg.system.common.dao.PubgPlayerMapper">
-    <resultMap id="PubgPlayerBaseMap" type="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDTO">
+    <resultMap id="PubgPlayerBaseMap" type="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDO">
         <result column="PLAYER_ID" jdbcType="VARCHAR" property="playerId"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt"
@@ -21,24 +21,7 @@
         <result column="DB_UPDATED_FROM" jdbcType="TIMESTAMP" property="dbUpdatedFrom"/>
     </resultMap>
 
-    <!--    <select id="queryByPlayerId" resultMap="PubgPlayerBaseMap"-->
-    <!--            resultType="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDTO">-->
-    <!--        SELECT PLAYER_ID,-->
-    <!--               NAME,-->
-    <!--               CREATED_AT,-->
-    <!--               UPDATED_AT,-->
-    <!--               SHARD_ID,-->
-    <!--               DB_CREATED_AT,-->
-    <!--               DB_CREATED_BY,-->
-    <!--               DB_CREATED_FROM,-->
-    <!--               DB_UPDATED_AT,-->
-    <!--               DB_UPDATED_BY,-->
-    <!--               DB_UPDATED_FROM-->
-    <!--        FROM PUBG_PLAYER-->
-    <!--        WHERE PLAYER_ID = #{playerId}-->
-    <!--    </select>-->
-
-    <insert id="insertPubgPlayer" parameterType="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDTO">
+    <insert id="insertPubgPlayer" parameterType="xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDO">
         insert into PUBG_PLAYER (PLAYER_ID, NAME, CREATED_AT,
                                  UPDATED_AT, SHARD_ID)
         values (#{playerId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},

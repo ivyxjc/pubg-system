@@ -7,7 +7,7 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
-import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDTO
+import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDO
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.Duration
 import java.time.LocalDateTime
@@ -22,8 +22,8 @@ class PubgPlayerMapperTest {
     @Autowired
     private lateinit var pubgPlayerMapper: PubgPlayerMapper
 
-    private fun preparePlayerDTO(): PubgPlayerDTO {
-        val pubgPlayerDTO = PubgPlayerDTO()
+    private fun preparePlayerDTO(): PubgPlayerDO {
+        val pubgPlayerDTO = PubgPlayerDO()
         pubgPlayerDTO.playerId = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC).toString()
         pubgPlayerDTO.name = RandomStringUtils.random(10)
         pubgPlayerDTO.createdAt = LocalDateTime.now()
@@ -32,7 +32,7 @@ class PubgPlayerMapperTest {
         return pubgPlayerDTO
     }
 
-    private fun checkPubgPlayerDTO(expect: PubgPlayerDTO, real: PubgPlayerDTO) {
+    private fun checkPubgPlayerDTO(expect: PubgPlayerDO, real: PubgPlayerDO) {
         Assert.assertNotNull(expect)
         Assert.assertEquals(expect.name, real.name)
         /*

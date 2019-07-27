@@ -4,20 +4,20 @@ import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.ResultMap
 import org.apache.ibatis.annotations.Select
 import org.springframework.stereotype.Repository
-import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDTO
+import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDO
 
 @Repository
 interface PubgPlayerMatchMapper {
 
-    fun insertPubgPlayerMatchList(matches: List<PubgPlayerMatchDTO>): Int
+    fun insertPubgPlayerMatchList(matches: List<PubgPlayerMatchDO>): Int
 
     @ResultMap("PubgPlayerMatchBaseMapper")
     @Select("SELECT * FROM PUBG_PLAYER_MATCH WHERE PLAYER_ID=#{playerId}")
-    fun queryByPlayerId(playerId: String): List<PubgPlayerMatchDTO>
+    fun queryByPlayerId(playerId: String): List<PubgPlayerMatchDO>
 
     @ResultMap("PubgPlayerMatchBaseMapper")
     @Select("SELECT * FROM PUBG_PLAYER_MATCH WHERE MATCH_ID=#{matchId}")
-    fun queryByMatchId(matchId: String): PubgPlayerMatchDTO
+    fun queryByMatchId(matchId: String): PubgPlayerMatchDO
 
     @Delete("DELETE FROM PUBG_PLAYER_MATCH WHERE PLAYER_ID=#{playerId}")
     fun deleteByPlayerId(playerId: String): Int
