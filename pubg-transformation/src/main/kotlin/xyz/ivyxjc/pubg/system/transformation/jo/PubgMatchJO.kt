@@ -2,8 +2,15 @@ package xyz.ivyxjc.pubg.system.transformation.jo
 
 import org.apache.commons.lang3.builder.ToStringBuilder
 
+
 class PubgMatchJO {
     lateinit var data: JsonMatchData
+    lateinit var included: MutableList<JsonMatchIncluded>
+}
+
+open class JsonMatchIncluded {
+    lateinit var type: String
+    lateinit var id: String
 }
 
 class JsonMatchData {
@@ -61,3 +68,80 @@ class JsonMatchRostersData {
     }
 }
 
+class JsonMatchRoster : JsonMatchIncluded() {
+    lateinit var attributes: JsonMatchRosterAttributes
+    lateinit var relationships: JsonMatchRosterRelations
+}
+
+class JsonMatchRosterAttributes {
+    lateinit var stats: JsonMatchRosterAttributesStats
+
+    lateinit var won: String
+
+    lateinit var shardId: String
+}
+
+class JsonMatchRosterAttributesStats {
+    var rank: Int = -1
+    var teamId: Int = -1
+}
+
+class JsonMatchRosterRelations {
+    lateinit var participants: JsonMatchRosterRelationshipParticipants
+}
+
+class JsonMatchRosterRelationshipParticipants {
+    lateinit var data: MutableList<JsonMatchRosterRelationshipParticipantsData>
+}
+
+class JsonMatchRosterRelationshipParticipantsData {
+    lateinit var type: String
+    lateinit var id: String
+}
+
+class JsonMatchParticipant : JsonMatchIncluded() {
+    lateinit var attributes: JsonMatchParticipantAttributes
+}
+
+class JsonMatchParticipantAttributes {
+    lateinit var stats: JsonMatchParticipantAttributesStats
+}
+
+class JsonMatchParticipantAttributesStats {
+    lateinit var DBNOs: String
+    lateinit var assists: String
+    lateinit var boosts: String
+    lateinit var damageDealt: String
+    lateinit var deathType: String
+    lateinit var headshotKills: String
+    lateinit var heals: String
+    lateinit var killPlace: String
+    lateinit var killStreaks: String
+    lateinit var kills: String
+    lateinit var longestKill: String
+    lateinit var name: String
+    lateinit var playerId: String
+    lateinit var revives: String
+    lateinit var rideDistance: String
+    lateinit var roadKills: String
+    lateinit var swimDistance: String
+    lateinit var teamKills: String
+    lateinit var timeSurvived: String
+    lateinit var vehicleDestroys: String
+    lateinit var walkDistance: String
+    lateinit var weaponsAcquired: String
+    lateinit var winPlace: String
+}
+
+
+class JsonMatchAsset : JsonMatchIncluded() {
+    lateinit var attributes: JsonMatchAssetAttributes
+}
+
+
+class JsonMatchAssetAttributes {
+    lateinit var name: String
+    lateinit var description: String
+    lateinit var createdAt: String
+    lateinit var URL: String
+}

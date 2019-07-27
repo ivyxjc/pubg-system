@@ -2,6 +2,9 @@ package xyz.ivyxjc.pubg.system.transformation.utils
 
 import org.junit.Assert
 import org.junit.Test
+import xyz.ivyxjc.pubg.system.transformation.jo.JsonMatchAsset
+import xyz.ivyxjc.pubg.system.transformation.jo.JsonMatchParticipant
+import xyz.ivyxjc.pubg.system.transformation.jo.JsonMatchRoster
 
 class PubgJsonParserTest {
 
@@ -35,5 +38,28 @@ class PubgJsonParserTest {
         Assert.assertEquals(null, res.data.attributes.stats)
         Assert.assertEquals("squad-fpp", res.data.attributes.gameMode)
         Assert.assertEquals(26, res.data.relationships.rosters.data.size)
+        Assert.assertEquals(123, res.included.size)
+        res.included.forEach {
+            Assert.assertNotNull(it)
+            val that = it
+            when (it.javaClass) {
+                JsonMatchRoster::class.java -> {
+                    val tmp = that as JsonMatchRoster
+                    Assert.assertEquals("roster", tmp.type)
+                    Assert.assertNotNull(tmp.attributes)
+                    Assert.assertNotNull(tmp.relationships)
+                }
+                JsonMatchParticipant::class.java -> {
+                    val tmp = that as JsonMatchParticipant
+                    Assert.assertEquals("participant", tmp.type)
+                    Assert.assertNotNull(tmp.attributes)
+                }
+                JsonMatchAsset::class.java -> {
+                    val tmp = that as JsonMatchAsset
+                    Assert.assertEquals("asset", tmp.type)
+                    Assert.assertNotNull(tmp.attributes)
+                }
+            }
+        }
     }
 }
