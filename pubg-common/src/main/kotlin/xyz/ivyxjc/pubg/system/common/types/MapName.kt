@@ -10,11 +10,11 @@ enum class MapName(val mapName: String) {
 
 
     companion object {
-        fun enumOf(s: String): MapName {
+        fun enumOf(s: String?): MapName {
             return when (s) {
                 "Desert_Main" -> DESERT_MAIN
                 "Erangel_Main" -> ERANGEL_MAIN
-                "Baltic-Main" -> BALTIC_MAIN
+                "Baltic_Main" -> BALTIC_MAIN
                 else -> throw UnsupportedMapException("Not support this map")
             }
         }

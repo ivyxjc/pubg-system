@@ -11,14 +11,14 @@ enum class ShardId(val pltRegion: String) {
 
     companion object {
 
-        fun enumOf(s: String): ShardId {
+        fun enumOf(s: String?): ShardId {
             when (s) {
                 "steam" -> return STEAM
                 "xbox" -> return XBOX
                 "psn" -> return PSN
                 "kakao" -> return KAKAO
                 else -> throw UnsupportedPlatformRegionException(
-                    "Not support this platform region:$s"
+                    "Not support this shardId:$s"
                 )
             }
         }

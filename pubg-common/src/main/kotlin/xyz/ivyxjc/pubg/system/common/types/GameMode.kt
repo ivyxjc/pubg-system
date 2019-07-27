@@ -12,7 +12,7 @@ enum class GameMode(val mode: String) {
     SQUAD_FPP("squad-fpp");
 
     companion object {
-        fun enumOf(s: String): GameMode {
+        fun enumOf(s: String?): GameMode {
             return when (s) {
                 "duo" -> DUO
                 "duo-fpp" -> DUO_FPP
