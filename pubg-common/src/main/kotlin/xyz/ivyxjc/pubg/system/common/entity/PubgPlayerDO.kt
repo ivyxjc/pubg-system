@@ -4,7 +4,7 @@ package xyz.ivyxjc.pubg.system.common.entity
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.LocalDateTime
 
-class PubgPlayerDO : BaseEntity() {
+class PubgPlayerDO : BaseDO() {
 
     lateinit var playerId: String
 
@@ -19,7 +19,7 @@ class PubgPlayerDO : BaseEntity() {
     var updatedAt: LocalDateTime? = null
 }
 
-class PubgPlayerMatchDO : BaseEntity() {
+class PubgPlayerMatchDO : BaseDO() {
     lateinit var matchId: String
 
     lateinit var playerId: String

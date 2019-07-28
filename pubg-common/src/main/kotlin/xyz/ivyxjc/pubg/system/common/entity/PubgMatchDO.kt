@@ -5,7 +5,7 @@ import xyz.ivyxjc.pubg.system.common.types.MapName
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.LocalDateTime
 
-class PubgMatchSummaryDO : BaseEntity() {
+class PubgMatchSummaryDO : BaseDO() {
     lateinit var matchId: String
 
     var createdAt: LocalDateTime? = null
@@ -25,7 +25,7 @@ class PubgMatchSummaryDO : BaseEntity() {
     var assetUrl: String? = null
 }
 
-class PubgMatchDetailDO : BaseEntity() {
+class PubgMatchDetailDO : BaseDO() {
 
     lateinit var matchId: String
 
@@ -82,7 +82,7 @@ class PubgMatchDetailDO : BaseEntity() {
     var winPointsDelta: Double? = null
 }
 
-class PubgMatchRosterDO : BaseEntity() {
+class PubgMatchRosterDO : BaseDO() {
     lateinit var rosterId: String
 
     lateinit var matchId: String
@@ -94,7 +94,7 @@ class PubgMatchRosterDO : BaseEntity() {
     var win: Boolean? = null
 }
 
-class PubgMatchRosterParticipantDO : BaseEntity() {
+class PubgMatchRosterParticipantDO : BaseDO() {
     lateinit var rosterId: String
 
     lateinit var playerId: String
