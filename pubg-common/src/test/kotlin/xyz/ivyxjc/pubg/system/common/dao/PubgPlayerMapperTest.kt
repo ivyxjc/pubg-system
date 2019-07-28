@@ -91,7 +91,7 @@ class PubgPlayerMapperTest {
         var queryRes = pubgPlayerMapper.queryByPlayerName(pubgPlayerDTOInDb.playerId)
         checkPubgPlayerDTO(pubgPlayerDTOInDb, queryRes!!)
 
-        pubgPlayerMapper.delteByPubgName(pubgPlayerDTOInDb.name!!)
+        pubgPlayerMapper.deleteByPubgName(pubgPlayerDTOInDb.name!!)
 
         queryRes = pubgPlayerMapper.queryByPlayerName(pubgPlayerDTOInDb.playerId)
         Assert.assertNull(queryRes)

@@ -22,7 +22,7 @@ interface PubgPlayerMapper {
     fun deleteByPubgPlayerId(playerId: String)
 
     @Delete("DELETE FROM PUBG_PLAYER WHERE NAME=#{playerName}")
-    fun delteByPubgName(playerName: String): Int
+    fun deleteByPubgName(playerName: String): Int
 }
 
 

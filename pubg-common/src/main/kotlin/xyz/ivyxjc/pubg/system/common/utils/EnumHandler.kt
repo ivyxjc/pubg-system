@@ -8,7 +8,7 @@ import java.sql.CallableStatement
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
-class PlatformRegionHandler : BaseTypeHandler<ShardId?>() {
+class ShardIdHandler : BaseTypeHandler<ShardId?>() {
 
     val map = mutableMapOf<String, String>()
 

@@ -9,7 +9,7 @@
                 typeHandler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>
         <result column="UPDATED_AT" jdbcType="TIMESTAMP" property="updatedAt"/>
         <result column="SHARD_ID" jdbcType="CHAR" property="shardId"
-                typeHandler="xyz.ivyxjc.pubg.system.common.utils.PlatformRegionHandler"/>
+                typeHandler="xyz.ivyxjc.pubg.system.common.utils.ShardIdHandler"/>
         <result column="DB_CREATED_AT" jdbcType="TIMESTAMP" property="dbCreatedAt"
                 typeHandler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>
         <result column="DB_CREATED_BY" jdbcType="TIMESTAMP" property="dbCreatedBy"/>
