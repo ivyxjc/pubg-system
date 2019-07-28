@@ -1,0 +1,186 @@
+{
+    "data": [
+        {
+            "type": "player",
+            "id": "account.7c20cb2e1e3d4331adcf712cec236602",
+            "attributes": {
+                "titleId": "bluehole-pubg",
+                "shardId": "steam",
+                "createdAt": "2019-07-27T09:54:35Z",
+                "updatedAt": "2019-07-27T09:54:35Z",
+                "patchVersion": "",
+                "name": "cheese_1109",
+                "stats": null
+            },
+            "relationships": {
+                "assets": {
+                    "data": []
+                },
+                "matches": {
+                    "data": [
+                        {
+                            "type": "match",
+                            "id": "d24b3125-94c5-4ae3-a742-9b42d8e6fe96"
+                        },
+                        {
+                            "type": "match",
+                            "id": "3c2e22eb-95cf-4a94-9aad-9708f74d1645"
+                        },
+                        {
+                            "type": "match",
+                            "id": "0940e7c1-0e58-440c-bcb7-6961b0ca7350"
+                        },
+                        {
+                            "type": "match",
+                            "id": "5f055df0-cfa6-49fa-8e29-45ec5278eebf"
+                        },
+                        {
+                            "type": "match",
+                            "id": "87082ec6-2da2-427e-a623-da2aafc35f25"
+                        },
+                        {
+                            "type": "match",
+                            "id": "22cf46bf-6152-4593-975b-e381824f2e55"
+                        },
+                        {
+                            "type": "match",
+                            "id": "78b98165-b655-4446-a76f-c6a6bea1a0b5"
+                        },
+                        {
+                            "type": "match",
+                            "id": "51b21b83-6220-4b42-a6b0-30e0fda6df25"
+                        },
+                        {
+                            "type": "match",
+                            "id": "1c34fdad-1288-4a7a-81e6-2f8ecac75d9d"
+                        },
+                        {
+                            "type": "match",
+                            "id": "ac58a59e-ee04-4e70-8c05-78c1479d5c57"
+                        },
+                        {
+                            "type": "match",
+                            "id": "ce3505c7-c594-4113-8f0d-d8fdd737fa42"
+                        },
+                        {
+                            "type": "match",
+                            "id": "ad81e46a-ee89-4a84-a1a8-a2235cfaedf6"
+                        },
+                        {
+                            "type": "match",
+                            "id": "620cbccb-8d73-4d3f-bd5c-0e16c74f85d5"
+                        },
+                        {
+                            "type": "match",
+                            "id": "10d8331b-9963-485a-a662-48e93c0e31d7"
+                        },
+                        {
+                            "type": "match",
+                            "id": "6ef79adf-7f9b-4a80-bb07-bf2fdd3205df"
+                        },
+                        {
+                            "type": "match",
+                            "id": "af0fc8aa-509f-4136-a0e3-aed2648e26cb"
+                        },
+                        {
+                            "type": "match",
+                            "id": "f8ac2243-0bfd-4a76-8a27-6f36dae946f1"
+                        },
+                        {
+                            "type": "match",
+                            "id": "9abfc231-9bff-4af6-8c2f-de61d7e359bb"
+                        },
+                        {
+                            "type": "match",
+                            "id": "3a998fc2-2e2c-4bcb-bff1-35b845cd1d2f"
+                        },
+                        {
+                            "type": "match",
+                            "id": "15f5c46c-fa53-4ce3-9ee2-95e5bf68cd0a"
+                        },
+                        {
+                            "type": "match",
+                            "id": "2f61bd46-bf7f-417f-ac01-ef86e40da9a6"
+                        },
+                        {
+                            "type": "match",
+                            "id": "2dbda36a-d046-474d-8630-5b5602e96151"
+                        },
+                        {
+                            "type": "match",
+                            "id": "f46954b7-461a-4b30-96e2-c071491ecc05"
+                        },
+                        {
+                            "type": "match",
+                            "id": "437a2f88-bbdb-472b-b837-3bde3dd025b2"
+                        },
+                        {
+                            "type": "match",
+                            "id": "c9ab1943-9507-48db-b8d2-69f0ba9e49f3"
+                        },
+                        {
+                            "type": "match",
+                            "id": "fdb5440b-645d-4475-8d8e-d64395951a2a"
+                        },
+                        {
+                            "type": "match",
+                            "id": "98d4abdd-9595-4370-b2fa-afb2a2f9905c"
+                        },
+                        {
+                            "type": "match",
+                            "id": "4a0a32cb-a51f-448c-891c-ffba45f98b52"
+                        },
+                        {
+                            "type": "match",
+                            "id": "76036eec-f71c-49ea-b627-6cf3f5fdb455"
+                        },
+                        {
+                            "type": "match",
+                            "id": "cf4b3cd4-9541-4a4a-8cac-225c881d9127"
+                        },
+                        {
+                            "type": "match",
+                            "id": "8bd3b0e5-0f46-464e-b9ef-b580ae1d559c"
+                        },
+                        {
+                            "type": "match",
+                            "id": "9e6cfa71-5733-4e57-9b1b-df56465efa56"
+                        },
+                        {
+                            "type": "match",
+                            "id": "791dd517-3bca-4a16-819b-6b4b2559c84c"
+                        },
+                        {
+                            "type": "match",
+                            "id": "09406d72-919f-46ab-9c4e-bb5d17dfa481"
+                        },
+                        {
+                            "type": "match",
+                            "id": "f23a1c5c-2844-4e86-ba59-5d3523c832b2"
+                        },
+                        {
+                            "type": "match",
+                            "id": "42314f3a-1922-4680-9615-088952357356"
+                        },
+                        {
+                            "type": "match",
+                            "id": "4735aaa8-24e3-4b25-915c-e896ed09e3ec"
+                        },
+                        {
+                            "type": "match",
+                            "id": "2ad41289-80b7-4b71-ab26-14704f94eeb6"
+                        }
+                    ]
+                }
+            },
+            "links": {
+                "self": "https://api.playbattlegrounds.com/shards/steam/players/account.7c20cb2e1e3d4331adcf712cec236602",
+                "schema": ""
+            }
+        }
+    ],
+    "links": {
+        "self": "https://api.pubg.com/shards/steam/players?filter[playerNames]=cheese_1109"
+    },
+    "meta": {}
+}
