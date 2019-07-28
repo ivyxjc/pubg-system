@@ -1,23 +1,34 @@
-CREATE TABLE `PUBG`.`PUBG_MATCH_DETAIL`
-(
-    `MATCH_ID`        VARCHAR(100) NOT NULL,
-    `CREATED_AT`      TIMESTAMP    NULL,
-    `DURATION`        INT          NULL,
-    `GAME_MODE`       CHAR(10)     NULL,
-    `MAP_NAME`        VARCHAR(45)  NULL,
-    `SHARD_ID`        VARCHAR(10)  NULL,
-    `TITLE_ID`        VARCHAR(45)  NULL,
-    `DB_CREATED_AT`   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `DB_CREATED_BY`   VARCHAR(20)  NULL,
+`DB_CREATED_BY`   VARCHAR(20)  NULL,
     `DB_CREATED_FROM` VARCHAR(20)  NULL,
     `DB_UPDATED_AT`   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
-        ON UPDATE CURRENT_TIMESTAMP,
-    `DB_UPDATED_BY`   VARCHAR(20)  NULL,
-    `DB_UPDATED_FROM` VARCHAR(20)  NULL,
-    PRIMARY KEY (`MATCH_ID`),
-    INDEX `PUBG_MATCH_DETAIL_NX1` (`CREATED_AT` DESC)
-)
-    ENGINE = InnoDB;
+        ONUPDATE CURRENT_TIMESTAMP,
+              `DB_UPDATED_BY` VARCHAR (20
+          )
+          NULL
+          ,
+          `DB_UPDATED_FROM`
+          VARCHAR
+          (
+          20
+          )
+          NULL
+          ,
+          PRIMARY
+          KEY
+          (
+          `MATCH_ID`
+          )
+          ,
+          INDEX
+          `PUBG_MATCH_DETAIL_NX1`
+          (
+          `CREATED_AT`
+          DESC
+          )
+          )
+          ENGINE
+          =
+          InnoDB;
 
 CREATE TABLE `PUBG`.`PUBG_ROSTER`
 (
@@ -89,7 +100,6 @@ CREATE TABLE `PUBG`.`PUBG_PARTICIPANT`
     INDEX `PUBG_PARTICIPANT_NX3` (`DB_UPDATED_AT` ASC)
 )
     ENGINE = InnoDB;
-
 
 
 
