@@ -79,9 +79,9 @@ open class PubgPlayerMatchMapperTest {
     @Test
     fun testInsertPubgPlayerMatchList() {
         val pubgPlayerMatchList = preparePubgPlayerMatch()
-        pubgPlayerMatchMapper.insertPubgPlayerMatchList(pubgPlayerMatchList)
+        pubgPlayerMatchMapper.insertPubgPlayerMatchs(pubgPlayerMatchList)
 
-        val queryRes = pubgPlayerMatchMapper.queryByPlayerId(pubgPlayerMatchList[0].playerId)
+        val queryRes = pubgPlayerMatchMapper.listByPlayerId(pubgPlayerMatchList[0].playerId)
         Assert.assertEquals(pubgPlayerMatchList.size, queryRes.size)
         checkPubgPlayerMatchList(pubgPlayerMatchList, queryRes)
     }
@@ -89,9 +89,9 @@ open class PubgPlayerMatchMapperTest {
     @Test
     fun testQueryByPlaeryId() {
         val pubgPlayerMatchList = preparePubgPlayerMatch()
-        pubgPlayerMatchMapper.insertPubgPlayerMatchList(pubgPlayerMatchList)
+        pubgPlayerMatchMapper.insertPubgPlayerMatchs(pubgPlayerMatchList)
 
-        val queryRes = pubgPlayerMatchMapper.queryByPlayerId(pubgPlayerMatchList[0].playerId)
+        val queryRes = pubgPlayerMatchMapper.listByPlayerId(pubgPlayerMatchList[0].playerId)
         Assert.assertEquals(pubgPlayerMatchList.size, queryRes.size)
         checkPubgPlayerMatchList(pubgPlayerMatchList, queryRes)
     }
@@ -99,7 +99,7 @@ open class PubgPlayerMatchMapperTest {
     @Test
     fun testQueryByMatchId() {
         val pubgPlayerMatchList = preparePubgPlayerMatch()
-        pubgPlayerMatchMapper.insertPubgPlayerMatchList(pubgPlayerMatchList)
+        pubgPlayerMatchMapper.insertPubgPlayerMatchs(pubgPlayerMatchList)
 
         for (i in 0 until pubgPlayerMatchList.size) {
             val queryRes = pubgPlayerMatchMapper.queryByMatchId(pubgPlayerMatchList[i].matchId)
@@ -111,7 +111,7 @@ open class PubgPlayerMatchMapperTest {
     @Test
     fun testDeleteByPlaeryId() {
         val pubgPlayerMatchList = preparePubgPlayerMatch()
-        pubgPlayerMatchMapper.insertPubgPlayerMatchList(pubgPlayerMatchList)
+        pubgPlayerMatchMapper.insertPubgPlayerMatchs(pubgPlayerMatchList)
 
         val deleteRes = pubgPlayerMatchMapper.deleteByPlayerId(pubgPlayerMatchList[0].playerId)
         Assert.assertEquals(pubgPlayerMatchList.size, deleteRes)

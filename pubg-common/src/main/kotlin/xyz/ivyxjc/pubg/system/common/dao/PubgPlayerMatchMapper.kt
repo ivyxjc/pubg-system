@@ -9,11 +9,11 @@ import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDO
 @Repository
 interface PubgPlayerMatchMapper {
 
-    fun insertPubgPlayerMatchList(matches: List<PubgPlayerMatchDO>): Int
+    fun insertPubgPlayerMatchs(matches: List<PubgPlayerMatchDO>): Int
 
     @ResultMap("PubgPlayerMatchBaseMapper")
     @Select("SELECT * FROM PUBG_PLAYER_MATCH WHERE PLAYER_ID=#{playerId}")
-    fun queryByPlayerId(playerId: String): List<PubgPlayerMatchDO>
+    fun listByPlayerId(playerId: String): List<PubgPlayerMatchDO>
 
     @ResultMap("PubgPlayerMatchBaseMapper")
     @Select("SELECT * FROM PUBG_PLAYER_MATCH WHERE MATCH_ID=#{matchId}")

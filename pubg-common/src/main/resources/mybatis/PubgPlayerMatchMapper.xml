@@ -17,7 +17,7 @@
         <result column="DB_UPDATED_FROM" jdbcType="TIMESTAMP" property="dbUpdatedFrom"/>
     </resultMap>
 
-    <insert id="insertPubgPlayerMatchList" parameterType="java.util.List">
+    <insert id="insertPubgPlayerMatchs" parameterType="java.util.List">
         insert into PUBG_PLAYER_MATCH
         (PLAYER_ID,MATCH_ID,SHARD_ID)
         values
