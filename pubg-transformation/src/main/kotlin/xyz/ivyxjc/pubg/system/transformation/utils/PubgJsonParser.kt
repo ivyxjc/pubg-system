@@ -15,6 +15,10 @@ class PubgJsonParser {
             return gson.fromJson(jsonReader, PubgPlayerJO::class.java)
         }
 
+        fun parserPlayer(input: String): PubgPlayerJO {
+            return gson.fromJson(input, PubgPlayerJO::class.java)
+        }
+
         fun parserMatch(input: InputStream): PubgMatchJO {
             val parse = MultiTypeJsonParser.Builder<JsonMatchIncluded>()
                 .registerTypeElementName("type")
@@ -26,5 +30,17 @@ class PubgJsonParser {
             val jsonReader = InputStreamReader(input)
             return parse.parseGson.fromJson(jsonReader, PubgMatchJO::class.java)
         }
+
+        fun parserMatch(input: String): PubgMatchJO {
+            val parse = MultiTypeJsonParser.Builder<JsonMatchIncluded>()
+                .registerTypeElementName("type")
+                .registerTargetClass(JsonMatchIncluded::class.java)
+                .registerTypeElementValueWithClassType("roster", JsonMatchRoster::class.java)
+                .registerTypeElementValueWithClassType("participant", JsonMatchParticipant::class.java)
+                .registerTypeElementValueWithClassType("asset", JsonMatchAsset::class.java)
+                .build()
+            return parse.parseGson.fromJson(input, PubgMatchJO::class.java)
+        }
+
     }
 }

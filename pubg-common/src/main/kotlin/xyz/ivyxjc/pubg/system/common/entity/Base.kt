@@ -2,7 +2,7 @@ package xyz.ivyxjc.pubg.system.common.entity
 
 import java.time.LocalDateTime
 
-open class BaseEntity {
+open class BaseDO {
     var dbCreatedAt: LocalDateTime? = null
     var dbCreatedBy: String? = null
     var dbCreatedFrom: String? = null
