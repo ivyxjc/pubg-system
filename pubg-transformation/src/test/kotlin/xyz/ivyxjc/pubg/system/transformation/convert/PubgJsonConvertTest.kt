@@ -61,5 +61,29 @@ class PubgJsonConvertTest {
         }
     }
 
+    @Test
+    fun testParserJsonMatchRoster() {
+        val input = PubgJsonParserTest::class.java.classLoader.getResourceAsStream("test-data/match.json")
+        val matchJO = PubgJsonParser.parserMatch(input!!)
+        val res = PubgJsonConvert.convertToPubgMatchRosterDO(matchJO)
+        Assert.assertEquals(26, res.size)
+        res.forEach {
+            Assert.assertTrue(StringUtils.isNotBlank(it.matchId))
+            Assert.assertTrue(StringUtils.isNotBlank(it.rosterId))
+        }
+    }
+
+    @Test
+    fun testParserJsonMatchRosterParticipant() {
+        val input = PubgJsonParserTest::class.java.classLoader.getResourceAsStream("test-data/match.json")
+        val matchJO = PubgJsonParser.parserMatch(input!!)
+        val res = PubgJsonConvert.convertToPubgMatchRosterParticipantDO(matchJO)
+        Assert.assertEquals(96, res.size)
+        res.forEach {
+            Assert.assertTrue(StringUtils.isNotBlank(it.rosterId))
+            Assert.assertTrue(StringUtils.isNotBlank(it.playerId))
+            Assert.assertTrue(it.playerId.startsWith("account."))
+        }
+    }
 
 }

@@ -1,17 +1,11 @@
 package xyz.ivyxjc.pubg.system.transformation.convert
 
-import xyz.ivyxjc.pubg.system.common.entity.PubgMatchDetailDO
-import xyz.ivyxjc.pubg.system.common.entity.PubgMatchSummaryDO
-import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerDO
-import xyz.ivyxjc.pubg.system.common.entity.PubgPlayerMatchDO
+import xyz.ivyxjc.pubg.system.common.entity.*
 import xyz.ivyxjc.pubg.system.common.types.GameMode
 import xyz.ivyxjc.pubg.system.common.types.MapName
 import xyz.ivyxjc.pubg.system.common.types.ShardId
 import xyz.ivyxjc.pubg.system.common.utils.TimeUtils
-import xyz.ivyxjc.pubg.system.transformation.jo.JsonMatchAsset
-import xyz.ivyxjc.pubg.system.transformation.jo.JsonMatchParticipant
-import xyz.ivyxjc.pubg.system.transformation.jo.PubgMatchJO
-import xyz.ivyxjc.pubg.system.transformation.jo.PubgPlayerJO
+import xyz.ivyxjc.pubg.system.transformation.jo.*
 
 
 class PubgJsonConvert {
@@ -93,6 +87,49 @@ class PubgJsonConvert {
             }
             return res
         }
+
+        fun convertToPubgMatchRosterDO(matchJO: PubgMatchJO): List<PubgMatchRosterDO> {
+            val res = mutableListOf<PubgMatchRosterDO>()
+            val matchId = matchJO.data.id
+
+            matchJO.included.filterIsInstance<JsonMatchRoster>().forEach {
+                val tmp = PubgMatchRosterDO()
+                tmp.matchId = matchId
+                tmp.rosterId = it.id
+                tmp.rank = it.attributes.stats.rank
+                tmp.teamId = it.attributes.stats.teamId
+                tmp.win = it.attributes.won.toBoolean()
+                res.add(tmp)
+            }
+            return res
+        }
+
+        fun convertToPubgMatchRosterParticipantDO(matchJO: PubgMatchJO): List<PubgMatchRosterParticipantDO> {
+            val res = mutableListOf<PubgMatchRosterParticipantDO>()
+            val matchId = matchJO.data.id
+            val participantIdPlayerIdMapper = generateParticipantPlayerIdMaper(matchJO)
+            matchJO.included.filterIsInstance<JsonMatchRoster>().forEach { roster ->
+                val tmpRosterId = roster.id
+                roster.relationships.participants.data.forEach {
+                    val tmp = PubgMatchRosterParticipantDO()
+                    tmp.rosterId = tmpRosterId
+                    tmp.playerId =
+                        participantIdPlayerIdMapper[it.id] ?: error("Fail to find playerId based on participantId")
+                    res.add(tmp)
+                }
+
+            }
+            return res
+        }
+
+        private fun generateParticipantPlayerIdMaper(matchJO: PubgMatchJO): Map<String, String> {
+            val res = mutableMapOf<String, String>()
+            matchJO.included.filterIsInstance<JsonMatchParticipant>().forEach {
+                res.put(it.id, it.attributes.stats.playerId)
+            }
+            return res
+        }
+
     }
 
 }
