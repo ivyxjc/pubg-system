@@ -15,19 +15,15 @@
         <result column="HEADSHOT_KILLS" jdbcType="INTEGER" property="headshotKills"/>
         <result column="HEALS" jdbcType="INTEGER" property="heals"/>
         <result column="KILL_PLACE" jdbcType="INTEGER" property="killPlace"/>
-        <result column="KILL_POINTS" jdbcType="INTEGER" property="killPoints"/>
-        <result column="KILL_POINTS_DELTA" jdbcType="DECIMAL" property="killPointsDelta"/>
         <result column="KILL_STREAKS" jdbcType="INTEGER" property="killStreaks"/>
         <result column="KILLS" jdbcType="INTEGER" property="kills"/>
-        <result column="LAST_KILL_POINTS" jdbcType="INTEGER" property="lastKillPoints"/>
-        <result column="LAST_WIN_POINTS" jdbcType="INTEGER" property="lastWinPoints"/>
         <result column="LONGEST_KILL" jdbcType="DECIMAL" property="longestKill"/>
-        <result column="MOST_DAMAGE" jdbcType="INTEGER" property="mostDamage"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="PLAYER_ID" jdbcType="VARCHAR" property="playerId"/>
         <result column="REVIVES" jdbcType="INTEGER" property="revives"/>
         <result column="RIDE_DISTANCE" jdbcType="DECIMAL" property="rideDistance"/>
         <result column="ROAD_KILLS" jdbcType="INTEGER" property="roadKills"/>
+        <result column="SWIM_DISTANCE" jdbcType="DECIMAL" property="swimDistance"/>
         <result column="TEAM_KILLS" jdbcType="INTEGER" property="teamKills"/>
         <result column="TIME_SURVIVED" jdbcType="INTEGER" property="timeSurvived"/>
         <result column="VEHICLE_DESTROYS" jdbcType="INTEGER" property="vehicleDestroys"/>
@@ -50,11 +46,11 @@
         SHARD_ID, DBNOS, ASSISTS,
         BOOSTS, DAMAGE_DEALT, DEATH_TYPE,
         HEADSHOT_KILLS, HEALS, KILL_PLACE,
-        KILL_POINTS, KILL_POINTS_DELTA, KILL_STREAKS,
-        KILLS, LAST_KILL_POINTS, LAST_WIN_POINTS,
-        LONGEST_KILL, MOST_DAMAGE, NAME,
+        KILL_STREAKS,
+        KILLS,
+        LONGEST_KILL, NAME,
         REVIVES, RIDE_DISTANCE,
-        ROAD_KILLS, TEAM_KILLS, TIME_SURVIVED,
+        ROAD_KILLS, SWIM_DISTANCE, TEAM_KILLS, TIME_SURVIVED,
         VEHICLE_DESTROYS, WALK_DISTANCE, WEAPONS_ACQUIRED,
         WIN_PLACE, WIN_POINTS, WIN_POINTS_DELTA)
         values
@@ -71,18 +67,14 @@
             #{item.headshotKills,jdbcType=INTEGER},
             #{item.heals,jdbcType=INTEGER},
             #{item.killPlace,jdbcType=INTEGER},
-            #{item.killPoints,jdbcType=INTEGER},
-            #{item.killPointsDelta,jdbcType=DECIMAL},
             #{item.killStreaks,jdbcType=INTEGER},
             #{item.kills,jdbcType=INTEGER},
-            #{item.lastKillPoints,jdbcType=INTEGER},
-            #{item.lastWinPoints,jdbcType=INTEGER},
             #{item.longestKill,jdbcType=DECIMAL},
-            #{item.mostDamage,jdbcType=INTEGER},
             #{item.name,jdbcType=VARCHAR},
             #{item.revives,jdbcType=INTEGER},
             #{item.rideDistance,jdbcType=DECIMAL},
             #{item.roadKills,jdbcType=INTEGER},
+            #{item.swimDistance,jdbcType=DECIMAL},
             #{item.teamKills,jdbcType=INTEGER},
             #{item.timeSurvived,jdbcType=INTEGER},
             #{item.vehicleDestroys,jdbcType=INTEGER},
@@ -101,11 +93,11 @@
                                       SHARD_ID, DBNOS, ASSISTS,
                                       BOOSTS, DAMAGE_DEALT, DEATH_TYPE,
                                       HEADSHOT_KILLS, HEALS, KILL_PLACE,
-                                      KILL_POINTS, KILL_POINTS_DELTA, KILL_STREAKS,
-                                      KILLS, LAST_KILL_POINTS, LAST_WIN_POINTS,
-                                      LONGEST_KILL, MOST_DAMAGE, NAME,
+                                      KILL_STREAKS,
+                                      KILLS,
+                                      LONGEST_KILL, NAME,
                                       REVIVES, RIDE_DISTANCE,
-                                      ROAD_KILLS, TEAM_KILLS, TIME_SURVIVED,
+                                      ROAD_KILLS, SWIM_DISTANCE, TEAM_KILLS, TIME_SURVIVED,
                                       VEHICLE_DESTROYS, WALK_DISTANCE, WEAPONS_ACQUIRED,
                                       WIN_PLACE, WIN_POINTS, WIN_POINTS_DELTA)
         values (#{matchId,jdbcType=VARCHAR},
@@ -119,18 +111,14 @@
                 #{headshotKills,jdbcType=INTEGER},
                 #{heals,jdbcType=INTEGER},
                 #{killPlace,jdbcType=INTEGER},
-                #{killPoints,jdbcType=INTEGER},
-                #{killPointsDelta,jdbcType=DECIMAL},
                 #{killStreaks,jdbcType=INTEGER},
                 #{kills,jdbcType=INTEGER},
-                #{lastKillPoints,jdbcType=INTEGER},
-                #{lastWinPoints,jdbcType=INTEGER},
                 #{longestKill,jdbcType=DECIMAL},
-                #{mostDamage,jdbcType=INTEGER},
                 #{name,jdbcType=VARCHAR},
                 #{revives,jdbcType=INTEGER},
                 #{rideDistance,jdbcType=DECIMAL},
                 #{roadKills,jdbcType=INTEGER},
+                #{swimDistance,jdbcType=DECIMAL},
                 #{teamKills,jdbcType=INTEGER},
                 #{timeSurvived,jdbcType=INTEGER},
                 #{vehicleDestroys,jdbcType=INTEGER},

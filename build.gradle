@@ -128,12 +128,14 @@ project("pubg-common") {
 
 project("pubg-transmission") {
     dependencies {
-
+        api project(":pubg-common")
     }
 
 }
 project("pubg-transformation") {
     dependencies {
+        api project(":pubg-common")
+
         implementation group: 'com.google.code.gson', name: 'gson', version: gson_version
     }
 

@@ -4,6 +4,7 @@
 <mapper namespace="xyz.ivyxjc.pubg.system.common.dao.PubgMatchSummaryMapper">
     <resultMap id="PubgMatchSummaryBaseMap" type="xyz.ivyxjc.pubg.system.common.entity.PubgMatchSummaryDO">
         <result column="MATCH_ID" jdbcType="VARCHAR" property="matchId"/>
+        <result column="CUSTOM_MATCH" jdbcType="BOOLEAN" property="customMatch"/>
         <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt"/>
         <result column="DURATION" jdbcType="INTEGER" property="duration"/>
         <result column="GAME_MODE" jdbcType="CHAR" property="gameMode"/>
@@ -22,12 +23,15 @@
     </resultMap>
 
     <insert id="insertMatchSummary" parameterType="xyz.ivyxjc.pubg.system.common.entity.PubgMatchSummaryDO">
-        INSERT INTO PUBG_MATCH_SUMMARY (MATCH_ID, CREATED_AT, DURATION,
+        INSERT INTO PUBG_MATCH_SUMMARY (MATCH_ID, CUSTOM_MATCH, CREATED_AT, DURATION,
                                         GAME_MODE, MAP_NAME, SHARD_ID,
                                         TITLE_ID, ASSET_URL)
-        values (#{matchId,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP},
+        values (#{matchId,jdbcType=VARCHAR},
+                #{customMatch,jdbcType=BOOLEAN},
+                #{createdAt,jdbcType=TIMESTAMP},
                 #{duration,jdbcType=INTEGER},
-                #{gameMode,jdbcType=CHAR}, #{mapName.mapName,jdbcType=VARCHAR},
+                #{gameMode,jdbcType=CHAR},
+                #{mapName.mapName,jdbcType=VARCHAR},
                 #{shardId.pltRegion,jdbcType=VARCHAR},
                 #{titleId,jdbcType=VARCHAR},
                 #{assetUrl,jdbcType=VARCHAR})

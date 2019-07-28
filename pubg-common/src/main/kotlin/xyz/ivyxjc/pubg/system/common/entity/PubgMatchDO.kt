@@ -8,7 +8,9 @@ import java.time.LocalDateTime
 class PubgMatchSummaryDO : BaseEntity() {
     lateinit var matchId: String
 
-    lateinit var createdAt: LocalDateTime
+    var createdAt: LocalDateTime? = null
+
+    var customMatch: Boolean? = false
 
     var duration: Int? = -1
 
@@ -47,21 +49,11 @@ class PubgMatchDetailDO : BaseEntity() {
 
     var killPlace: Int? = null
 
-    var killPoints: Int? = null
-
-    var killPointsDelta: Double? = null
-
     var killStreaks: Int? = null
 
     var kills: Int? = null
 
-    var lastKillPoints: Int? = null
-
-    var lastWinPoints: Int? = null
-
     var longestKill: Double? = null
-
-    var mostDamage: Int? = null
 
     var name: String? = null
 
@@ -71,9 +63,11 @@ class PubgMatchDetailDO : BaseEntity() {
 
     var roadKills: Int? = null
 
+    var swimDistance: Double? = null
+
     var teamKills: Int? = null
 
-    var timeSurvived: Int? = null
+    var timeSurvived: Double? = null
 
     var vehicleDestroys: Int? = null
 

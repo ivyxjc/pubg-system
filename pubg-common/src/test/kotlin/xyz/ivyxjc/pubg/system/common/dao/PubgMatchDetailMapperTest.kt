@@ -31,6 +31,7 @@ class PubgMatchDetailMapperTest {
             LockSupport.parkNanos(10.0.pow(6.0).toLong())
             matchDetail.playerId = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli().toString()
             matchDetail.shardId = ShardId.STEAM
+            matchDetail.timeSurvived = Random.nextDouble()
             matchDetail
         }
     }
