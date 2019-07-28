@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ivyxjc.pubg.system.common.dao.PubgMatchRosterMapper">
+    <resultMap id="PubgMatchRosterBaseMap" type="xyz.ivyxjc.pubg.system.common.entity.PubgMatchRosterDO">
+        <result column="MATCH_ID" jdbcType="VARCHAR" property="matchId"/>
+        <result column="ROSTER_ID" jdbcType="VARCHAR" property="rosterId"/>
+        <result column="RANK" jdbcType="INTEGER" property="rank"/>
+        <result column="TEAM_ID" jdbcType="INTEGER" property="teamId"/>
+        <result column="WIN" jdbcType="TINYINT" property="win"/>
+        <result column="DB_CREATED_AT" jdbcType="TIMESTAMP" property="dbCreatedAt"/>
+        <result column="DB_CREATED_BY" jdbcType="TIMESTAMP" property="dbCreatedBy"/>
+        <result column="DB_CREATED_FROM" jdbcType="TIMESTAMP" property="dbCreatedFrom"/>
+        <result column="DB_UPDATED_AT" jdbcType="TIMESTAMP" property="dbUpdatedAt"/>
+        <result column="DB_UPDATED_BY" jdbcType="TIMESTAMP" property="dbUpdatedBy"/>
+        <result column="DB_UPDATED_FROM" jdbcType="TIMESTAMP" property="dbUpdatedFrom"/>
+    </resultMap>
+
+    <insert id="insertMatchRoster" parameterType="xyz.ivyxjc.pubg.system.common.entity.PubgMatchRosterDO">
+        insert into PUBG_MATCH_ROSTER (MATCH_ID, ROSTER_ID,
+                                       RANK, TEAM_ID, WIN)
+        values (#{matchId,jdbcType=VARCHAR},
+                #{rosterId,jdbcType=VARCHAR},
+                #{rank,jdbcType=INTEGER},
+                #{teamId,jdbcType=INTEGER},
+                #{win,jdbcType=TINYINT})
+    </insert>
+
+    <insert id="insertMatchRosters" parameterType="java.util.List">
+        insert into PUBG_MATCH_ROSTER (MATCH_ID, ROSTER_ID,
+        RANK, TEAM_ID, WIN)
+        values
+        <foreach collection="list" item="pubgRosert" index="index" separator=",">
+            (#{pubgRosert.matchId,jdbcType=VARCHAR}, #{pubgRosert.rosterId,jdbcType=VARCHAR},
+            #{pubgRosert.rank,jdbcType=INTEGER}, #{pubgRosert.teamId,jdbcType=INTEGER},
+            #{pubgRosert.win,jdbcType=TINYINT})
+        </foreach>
+    </insert>
+
+</mapper>

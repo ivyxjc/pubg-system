@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner
 import xyz.ivyxjc.pubg.system.common.entity.PubgMatchSummaryDO
 import xyz.ivyxjc.pubg.system.common.types.GameMode
 import xyz.ivyxjc.pubg.system.common.types.MapName
+import xyz.ivyxjc.pubg.system.common.types.ShardId
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -25,7 +26,7 @@ class PubgMatchSummaryTest {
         val matchSummary = PubgMatchSummaryDO()
         matchSummary.matchId = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli().toString()
         matchSummary.createdAt = LocalDateTime.now()
-//        matchSummary.shardId = ShardId.STEAM
+        matchSummary.shardId = ShardId.STEAM
         matchSummary.duration = 100
         matchSummary.gameMode = GameMode.DUO
         matchSummary.mapName = MapName.BALTIC_MAIN

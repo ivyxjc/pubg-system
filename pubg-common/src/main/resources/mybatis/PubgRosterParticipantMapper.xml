@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ivyxjc.pubg.system.common.dao.PubgRosterParticipantMapper">
+    <resultMap id="PubgRosterParticipantBaseMap"
+               type="xyz.ivyxjc.pubg.system.common.entity.PubgMatchRosterParticipantDO">
+        <result column="ROSTER_ID" jdbcType="VARCHAR" property="rosterId"/>
+        <result column="PLAYER_ID" jdbcType="VARCHAR" property="playerId"/>
+        <result column="DB_CREATED_AT" jdbcType="TIMESTAMP" property="dbCreatedAt"/>
+        <result column="DB_CREATED_BY" jdbcType="TIMESTAMP" property="dbCreatedBy"/>
+        <result column="DB_CREATED_FROM" jdbcType="TIMESTAMP" property="dbCreatedFrom"/>
+        <result column="DB_UPDATED_AT" jdbcType="TIMESTAMP" property="dbUpdatedAt"/>
+        <result column="DB_UPDATED_BY" jdbcType="TIMESTAMP" property="dbUpdatedBy"/>
+        <result column="DB_UPDATED_FROM" jdbcType="TIMESTAMP" property="dbUpdatedFrom"/>
+    </resultMap>
+
+    <insert id="insertRosterParticipant"
+            parameterType="xyz.ivyxjc.pubg.system.common.entity.PubgMatchRosterParticipantDO">
+        insert into PUBG_MATCH_ROSTER_PARTICIPANT (ROSTER_ID, PLAYER_ID)
+        values (#{rosterId,jdbcType=VARCHAR},
+                #{playerId ,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="insertRosterParticipants" parameterType="java.util.List">
+        insert into PUBG_MATCH_ROSTER_PARTICIPANT ( ROSTER_ID,PLAYER_ID)
+        values
+        <foreach collection="list" item="rosterParticipant" index="index" separator=",">
+            (#{rosterParticipant.rosterId,jdbcType=VARCHAR}, #{rosterParticipant.playerId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+</mapper>
