@@ -2,7 +2,7 @@ package xyz.ivyxjc.pubg.system.transformation.processor
 
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
+import xyz.ivyxjc.pubg.system.common.annotation.Processor
 import xyz.ivyxjc.pubg.system.common.entity.RawMessage
 import xyz.ivyxjc.pubg.system.common.processors.WorkflowProcessor
 import xyz.ivyxjc.pubg.system.common.service.PubgPlayerService
@@ -12,7 +12,7 @@ import xyz.ivyxjc.pubg.system.transformation.service.PubgApiService
 import xyz.ivyxjc.pubg.system.transformation.utils.PubgJsonParser
 
 
-@Service
+@Processor
 class PubgPlayerProcessor : WorkflowProcessor {
     companion object {
         val log = loggerFor(PubgPlayerProcessor::class.java)
