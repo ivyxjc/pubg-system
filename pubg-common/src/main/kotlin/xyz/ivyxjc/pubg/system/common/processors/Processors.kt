@@ -1,7 +1,7 @@
 package xyz.ivyxjc.pubg.system.common.processors
 
-import xyz.ivyxjc.pubg.system.common.model.TransmissionModel
+import xyz.ivyxjc.pubg.system.common.entity.RawMessage
 
 interface WorkflowProcessor {
-    fun process(transmissionModel: TransmissionModel)
+    fun process(rawMessage: RawMessage)
 }

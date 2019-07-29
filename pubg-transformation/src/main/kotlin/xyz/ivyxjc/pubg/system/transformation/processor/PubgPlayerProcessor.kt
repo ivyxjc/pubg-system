@@ -3,7 +3,7 @@ package xyz.ivyxjc.pubg.system.transformation.processor
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import xyz.ivyxjc.pubg.system.common.model.TransmissionModel
+import xyz.ivyxjc.pubg.system.common.entity.RawMessage
 import xyz.ivyxjc.pubg.system.common.processors.WorkflowProcessor
 import xyz.ivyxjc.pubg.system.common.service.PubgPlayerService
 import xyz.ivyxjc.pubg.system.common.utils.loggerFor
@@ -24,8 +24,8 @@ class PubgPlayerProcessor : WorkflowProcessor {
     @Autowired
     private lateinit var pubgApiService: PubgApiService
 
-    override fun process(transmissionModel: TransmissionModel) {
-        val playerName = transmissionModel.rawMessage
+    override fun process(rawMessage: RawMessage) {
+        val playerName = rawMessage.message
         val playerJson = pubgApiService.getPlayerJson(playerName)
         if (StringUtils.isBlank(playerJson)) {
             log.error("fail to get player json for player $playerName")

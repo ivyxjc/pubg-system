@@ -3,7 +3,7 @@ package xyz.ivyxjc.pubg.system.transformation.processor
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import xyz.ivyxjc.pubg.system.common.model.TransmissionModel
+import xyz.ivyxjc.pubg.system.common.entity.RawMessage
 import xyz.ivyxjc.pubg.system.common.processors.WorkflowProcessor
 import xyz.ivyxjc.pubg.system.common.service.PubgMatchService
 import xyz.ivyxjc.pubg.system.common.utils.loggerFor
@@ -23,8 +23,8 @@ class PubgMatchProcessor : WorkflowProcessor {
     @Autowired
     private lateinit var pubgApiService: PubgApiService
 
-    override fun process(transmissionModel: TransmissionModel) {
-        val matchId = transmissionModel.rawMessage
+    override fun process(rawMessage: RawMessage) {
+        val matchId = rawMessage.rawMessage
         val matchJson = pubgApiService.getMatchJson(matchId)
         if (StringUtils.isBlank(matchJson)) {
             log.error("fail to get match json for matchId $matchId")

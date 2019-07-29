@@ -18,7 +18,7 @@ spring:
             test-while-idle: true
             time-between-eviction-runs-millis: 60000
             min-evictable-idle-time-millis: 300000
-        schema: classpath:sql/init_structure.sql
+        schema: classpath:sql/pubg_init_structure.sql,classpath:sql/raw_init_structure.sql
 
 mybatis:
     type-aliases-package: xyz.ivyxjc.pubg.system.common.dao
