@@ -122,7 +122,7 @@ project("pubg-common") {
         compileOnly group: 'org.springframework', name: 'spring-core', version: spring_version
         compileOnly group: 'org.springframework', name: 'spring-context', version: spring_version
         compileOnly group: 'org.springframework', name: 'spring-tx', version: spring_version
-        compileOnly group: 'org.apache.kafka', name: 'kafka-clients', version: kafka_client_version
+        implementation group: 'org.apache.kafka', name: 'kafka-clients', version: kafka_client_version
 
 
         testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version

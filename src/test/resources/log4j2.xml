@@ -83,7 +83,7 @@
 
         <!--druid的日志记录追加器-->
         <RollingRandomAccessFile name="druidSqlRollingFile" fileName="./logs/druid-sql.log"
-                                 immediateFlush="false"
+                                 immediateFlush="true"
                                  append="true"
                                  filePattern="logs/$${date:yyyy-MM-dd}/api-%d{yyyy-MM-dd-HH}-%i.log.gz">
             <PatternLayout>
