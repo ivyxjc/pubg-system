@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service
 import xyz.ivyxjc.pubg.system.common.utils.loggerFor
 
 interface PubgApiService {
-    fun getPlayerJson(playerName: String): String?
+    fun getPlayerJsonByName(playerName: String): String?
+
+    fun getPlayerJsonById(playerName: String): String?
 
     fun getMatchJson(matchId: String): String?
 }
@@ -29,7 +31,7 @@ class PubgApiServiceImpl : PubgApiService {
     private lateinit var playerRequest: Request.Builder
     private lateinit var matchRequest: Request.Builder
 
-    override fun getPlayerJson(playerName: String): String? {
+    override fun getPlayerJsonByName(playerName: String): String? {
         playerRequest = Request.Builder()
             .url("https://api.pubg.com/shards/steam/players?filter[playerNames]=$playerName")
             .header("Accept", "application/vnd.api+json")
@@ -37,6 +39,19 @@ class PubgApiServiceImpl : PubgApiService {
         val response = httpClient.newCall(playerRequest.build()).execute()
         if (response.code != 200) {
             log.error("fail to get player's json for $playerName, status code is ${response.code}")
+            log.error("response is: $response")
+        }
+        return response.body?.string()
+    }
+
+    override fun getPlayerJsonById(playerId: String): String? {
+        playerRequest = Request.Builder()
+            .url("https://api.pubg.com/shards/steam/players?filter[playerId]=$playerId")
+            .header("Accept", "application/vnd.api+json")
+            .header("Authorization", authorization)
+        val response = httpClient.newCall(playerRequest.build()).execute()
+        if (response.code != 200) {
+            log.error("fail to get player's json for $playerId, status code is ${response.code}")
             log.error("response is: $response")
         }
         return response.body?.string()
