@@ -18,7 +18,7 @@ ext {
     hibernate_version = '5.4.0.Final'
     jmh_version = '1.21'
     junit_version = '4.12'
-    kafka_version = '2.2.0'
+    kafka_client_version = '2.3.0'
     log4j_slf4j_version = '2.11.2'
     lombok_version = '1.18.4'
     mockito_kotlin_version = '1.6.0'
@@ -51,6 +51,9 @@ configure(allprojects) { project ->
     }
 
     buildDir = "${rootProject.projectDir.path}/build/${rootProject.name}/${project.name}"
+
+    sourceSets.main.resources.srcDirs += "${rootProject.projectDir.path}/src/main/resources"
+    sourceSets.test.resources.srcDirs += "${rootProject.projectDir.path}/src/test/resources"
 
     compileJava {
         sourceCompatibility = JavaVersion.VERSION_11 // can be switched to 11 for testing
@@ -119,6 +122,7 @@ project("pubg-common") {
         compileOnly group: 'org.springframework', name: 'spring-core', version: spring_version
         compileOnly group: 'org.springframework', name: 'spring-context', version: spring_version
         compileOnly group: 'org.springframework', name: 'spring-tx', version: spring_version
+        compileOnly group: 'org.apache.kafka', name: 'kafka-clients', version: kafka_client_version
 
 
         testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version
@@ -150,6 +154,8 @@ project("pubg-transformation") {
         implementation group: 'com.alibaba', name: 'druid-spring-boot-starter', version: druid_starter_version;
         // db ends
 
+        implementation group: 'org.springframework.kafka', name: 'spring-kafka', version: spring_kafka_version
+
         testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version
     }
 }
@@ -158,10 +164,23 @@ project("pubg-transmission") {
     dependencies {
         implementation project(":pubg-common")
 
+        // db starts
+        //implementation group: 'org.mybatis', name: 'mybatis', version: mybatis_version
+        //implementation group: 'org.mybatis', name: 'mybatis-spring', version: mybatis_spring_version
+        implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+        implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: mybatis_starter_version
+        implementation group: 'com.alibaba', name: 'druid-spring-boot-starter', version: druid_starter_version;
+        // db ends
+
         implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
 
         implementation group: 'org.springframework.kafka', name: 'spring-kafka', version: spring_kafka_version
 
+
+        testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version
+//        testImplementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: mybatis_starter_version
+//        testImplementation group: 'com.alibaba', name: 'druid-spring-boot-starter', version: druid_starter_version;
+        testRuntimeOnly group: 'com.h2database', name: 'h2', version: h2_version
 
     }
 }
