@@ -68,7 +68,7 @@
 
         <!--处理error级别的日志，并把该日志放到logs/error.log文件中-->
         <RollingRandomAccessFile name="RollingFileError" fileName="./logs/error.log"
-                                 immediateFlush="false"
+                                 immediateFlush="true"
                                  append="true"
                                  filePattern="logs/$${date:yyyy-MM-dd}/error-%d{yyyy-MM-dd-HH}-%i.log.gz">
             <ThresholdFilter level="ERROR"/>
