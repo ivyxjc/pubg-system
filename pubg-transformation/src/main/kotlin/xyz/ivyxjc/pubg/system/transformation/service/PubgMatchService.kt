@@ -1,30 +1,27 @@
-package xyz.ivyxjc.pubg.system.transformation.processor
+package xyz.ivyxjc.pubg.system.transformation.service
 
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Autowired
-import xyz.ivyxjc.pubg.system.common.annotation.Processor
-import xyz.ivyxjc.pubg.system.common.entity.RawMessage
-import xyz.ivyxjc.pubg.system.common.processors.WorkflowProcessor
-import xyz.ivyxjc.pubg.system.common.service.PubgMatchService
+import org.springframework.stereotype.Service
+import xyz.ivyxjc.pubg.system.common.service.PubgMatchRepoService
 import xyz.ivyxjc.pubg.system.common.utils.loggerFor
 import xyz.ivyxjc.pubg.system.transformation.convert.PubgJsonConvert
-import xyz.ivyxjc.pubg.system.transformation.service.PubgApiService
 import xyz.ivyxjc.pubg.system.transformation.utils.PubgJsonParser
 
-@Processor
-class PubgMatchProcessor : WorkflowProcessor {
+@Service
+class PubgMatchService {
+
     companion object {
-        val log = loggerFor(PubgPlayerProcessor::class.java)
+        private val log = loggerFor(PubgMatchService::class.java)
     }
 
     @Autowired
-    private lateinit var pubgMatchService: PubgMatchService
+    private lateinit var pubgMatchRepoService: PubgMatchRepoService
 
     @Autowired
     private lateinit var pubgApiService: PubgApiService
 
-    override fun process(rawMessage: RawMessage) {
-        val matchId = rawMessage.message
+    fun process(matchId: String) {
         val matchJson = pubgApiService.getMatchJson(matchId)
         if (StringUtils.isBlank(matchJson)) {
             log.error("fail to get match json for matchId $matchId")
@@ -35,6 +32,7 @@ class PubgMatchProcessor : WorkflowProcessor {
         val detailDO = PubgJsonConvert.convertToPubgMatchDetailDO(matchJO)
         val rosterDO = PubgJsonConvert.convertToPubgMatchRosterDO(matchJO)
         val rosterParticipantDO = PubgJsonConvert.convertToPubgMatchRosterParticipantDO(matchJO)
-        pubgMatchService.insertMatch(summaryDO, detailDO, rosterDO, rosterParticipantDO)
+        pubgMatchRepoService.insertMatch(summaryDO, detailDO, rosterDO, rosterParticipantDO)
     }
+
 }
