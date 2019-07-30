@@ -4,12 +4,12 @@ import java.time.LocalDateTime
 
 class RawMessage(val guid: Long, val message: String) {
 
-    val dbCreatedAt: LocalDateTime? = null
-    val dbCreatedBy: String? = null
-    val dbCreatedFrom: String? = null
-    val dbUpdatedAt: LocalDateTime? = null
-    val dbUpdatedBy: String? = null
-    val dbUpdatedFrom: String? = null
+    var dbCreatedAt: LocalDateTime? = null
+    var dbCreatedBy: String? = null
+    var dbCreatedFrom: String? = null
+    var dbUpdatedAt: LocalDateTime? = null
+    var dbUpdatedBy: String? = null
+    var dbUpdatedFrom: String? = null
 }
 
 
