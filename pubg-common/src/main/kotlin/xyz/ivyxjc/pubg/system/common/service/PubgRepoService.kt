@@ -6,11 +6,11 @@ import org.springframework.transaction.annotation.Transactional
 import xyz.ivyxjc.pubg.system.common.dao.*
 import xyz.ivyxjc.pubg.system.common.entity.*
 
-interface PubgPlayerService {
+interface PubgPlayerRepoService {
     fun insertPlayer(player: PubgPlayerDO, playerMatch: List<PubgPlayerMatchDO>)
 }
 
-interface PubgMatchService {
+interface PubgMatchRepoService {
 
     fun insertMatch(
         matchSummary: PubgMatchSummaryDO,
@@ -21,7 +21,7 @@ interface PubgMatchService {
 }
 
 @Service
-open class PubgPlayerServiceImpl : PubgPlayerService {
+open class PubgPlayerRepoServiceImpl : PubgPlayerRepoService {
 
     @Autowired
     private lateinit var pubgPlayerMapper: PubgPlayerMapper
@@ -37,7 +37,7 @@ open class PubgPlayerServiceImpl : PubgPlayerService {
 }
 
 @Service
-open class PubgMatchServiceImpl : PubgMatchService {
+open class PubgMatchRepoServiceImpl : PubgMatchRepoService {
 
     @Autowired
     private lateinit var pubgMatchSummaryMapper: PubgMatchSummaryMapper

@@ -7,13 +7,13 @@ import java.time.ZoneOffset
 import java.util.concurrent.locks.LockSupport
 import kotlin.math.pow
 
-@Service
 interface LeafService {
     fun getGuid(): Long
     fun getGuids(): Array<Long>
 }
 
 @Profile("dev")
+@Service
 class LeafServiceDevImpl : LeafService {
     override fun getGuid(): Long {
         LockSupport.parkNanos(10.0.pow(6.0).toLong())
@@ -26,6 +26,7 @@ class LeafServiceDevImpl : LeafService {
 }
 
 @Profile("prod")
+@Service
 class LeafServiceRealImpl : LeafService {
     override fun getGuid(): Long {
         TODO("not implemented")
