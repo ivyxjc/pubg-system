@@ -6,7 +6,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 
-class PubgJsonParser {
+internal class PubgJsonParser {
     companion object {
         private val gson = Gson()
 
