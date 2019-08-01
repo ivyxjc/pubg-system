@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 @MapperScan("xyz.ivyxjc.pubg.system.common.dao")
 @ComponentScan("xyz.ivyxjc.pubg.system")
 @EnableTransactionManagement
-@PropertySource(value = ["classpath:\${database.config.env}.properties"])
+@PropertySource(value = ["classpath:\${database.config.env}.properties", "classpath:private.properties"])
 open class TransmissionApplication
 
 fun main() {
