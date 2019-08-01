@@ -3,24 +3,24 @@ package xyz.ivyxjc.pubg.system.transformation.jo
 import org.apache.commons.lang3.builder.ToStringBuilder
 
 
-class PubgMatchJO {
+internal class PubgMatchJO {
     lateinit var data: JsonMatchData
     lateinit var included: MutableList<JsonMatchIncluded>
 }
 
-open class JsonMatchIncluded {
+internal open class JsonMatchIncluded {
     lateinit var type: String
     lateinit var id: String
 }
 
-class JsonMatchData {
+internal class JsonMatchData {
     lateinit var type: String
     lateinit var id: String
     lateinit var attributes: JsonMatchAttributes
     lateinit var relationships: JsonMatchRelationships
 }
 
-class JsonMatchAttributes {
+internal class JsonMatchAttributes {
     lateinit var seasonState: String
     lateinit var createdAt: String
     var tags: String? = null
@@ -43,7 +43,7 @@ class JsonMatchAttributes {
     }
 }
 
-class JsonMatchRelationships {
+internal class JsonMatchRelationships {
     lateinit var rosters: JsonMatchRosters
 
     override fun toString(): String {
@@ -51,7 +51,7 @@ class JsonMatchRelationships {
     }
 }
 
-class JsonMatchRosters {
+internal class JsonMatchRosters {
     lateinit var data: MutableList<JsonMatchRostersData>
 
     override fun toString(): String {
@@ -59,7 +59,7 @@ class JsonMatchRosters {
     }
 }
 
-class JsonMatchRostersData {
+internal class JsonMatchRostersData {
     lateinit var type: String
     lateinit var id: String
 
@@ -68,12 +68,12 @@ class JsonMatchRostersData {
     }
 }
 
-class JsonMatchRoster : JsonMatchIncluded() {
+internal class JsonMatchRoster : JsonMatchIncluded() {
     lateinit var attributes: JsonMatchRosterAttributes
     lateinit var relationships: JsonMatchRosterRelations
 }
 
-class JsonMatchRosterAttributes {
+internal class JsonMatchRosterAttributes {
     lateinit var stats: JsonMatchRosterAttributesStats
 
     lateinit var won: String
@@ -81,33 +81,33 @@ class JsonMatchRosterAttributes {
     lateinit var shardId: String
 }
 
-class JsonMatchRosterAttributesStats {
+internal class JsonMatchRosterAttributesStats {
     var rank: Int = -1
     var teamId: Int = -1
 }
 
-class JsonMatchRosterRelations {
+internal class JsonMatchRosterRelations {
     lateinit var participants: JsonMatchRosterRelationshipParticipants
 }
 
-class JsonMatchRosterRelationshipParticipants {
+internal class JsonMatchRosterRelationshipParticipants {
     lateinit var data: MutableList<JsonMatchRosterRelationshipParticipantsData>
 }
 
-class JsonMatchRosterRelationshipParticipantsData {
+internal class JsonMatchRosterRelationshipParticipantsData {
     lateinit var type: String
     lateinit var id: String
 }
 
-class JsonMatchParticipant : JsonMatchIncluded() {
+internal class JsonMatchParticipant : JsonMatchIncluded() {
     lateinit var attributes: JsonMatchParticipantAttributes
 }
 
-class JsonMatchParticipantAttributes {
+internal class JsonMatchParticipantAttributes {
     lateinit var stats: JsonMatchParticipantAttributesStats
 }
 
-class JsonMatchParticipantAttributesStats {
+internal class JsonMatchParticipantAttributesStats {
     lateinit var DBNOs: String
     lateinit var assists: String
     lateinit var boosts: String
@@ -134,12 +134,12 @@ class JsonMatchParticipantAttributesStats {
 }
 
 
-class JsonMatchAsset : JsonMatchIncluded() {
+internal class JsonMatchAsset : JsonMatchIncluded() {
     lateinit var attributes: JsonMatchAssetAttributes
 }
 
 
-class JsonMatchAssetAttributes {
+internal class JsonMatchAssetAttributes {
     lateinit var name: String
     lateinit var description: String
     lateinit var createdAt: String
