@@ -8,7 +8,7 @@ import xyz.ivyxjc.pubg.system.common.utils.TimeUtils
 import xyz.ivyxjc.pubg.system.transformation.jo.*
 
 
-class PubgJsonConvert {
+internal class PubgJsonConvert {
 
     companion object {
         fun convertToPubgPlayerDO(playerJO: PubgPlayerJO): PubgPlayerDO {

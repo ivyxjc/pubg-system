@@ -2,7 +2,8 @@ package xyz.ivyxjc.pubg.system.common.entity
 
 import java.time.LocalDateTime
 
-open class BaseDO {
+class RawMessage(val guid: Long, val message: String) {
+
     var dbCreatedAt: LocalDateTime? = null
     var dbCreatedBy: String? = null
     var dbCreatedFrom: String? = null
@@ -10,3 +11,5 @@ open class BaseDO {
     var dbUpdatedBy: String? = null
     var dbUpdatedFrom: String? = null
 }
+
+
