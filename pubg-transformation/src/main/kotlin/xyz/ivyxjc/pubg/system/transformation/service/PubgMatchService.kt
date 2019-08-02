@@ -9,7 +9,7 @@ import xyz.ivyxjc.pubg.system.transformation.convert.PubgJsonConvert
 import xyz.ivyxjc.pubg.system.transformation.utils.PubgJsonParser
 
 @Service
-class PubgMatchService {
+internal class PubgMatchService {
 
     companion object {
         private val log = loggerFor(PubgMatchService::class.java)

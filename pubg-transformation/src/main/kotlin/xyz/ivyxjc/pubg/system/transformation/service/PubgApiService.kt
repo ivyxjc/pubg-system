@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import xyz.ivyxjc.pubg.system.common.utils.loggerFor
 
-interface PubgApiService {
+internal interface PubgApiService {
     fun getPlayerJsonByName(playerName: String): String?
 
     fun getPlayerJsonById(playerName: String): String?
@@ -16,7 +16,7 @@ interface PubgApiService {
 }
 
 @Service
-class PubgApiServiceImpl : PubgApiService {
+internal class PubgApiServiceImpl : PubgApiService {
 
     companion object {
         val log = loggerFor(PubgApiServiceImpl::class.java)
