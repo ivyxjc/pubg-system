@@ -1,3 +1,6 @@
+server:
+    port: 27001
+
 database:
     config:
         env: jdbc-dev
@@ -13,14 +16,15 @@ dubbo:
     scan:
         base-packages: xyz.ivyxjc.pubg.remediation.impl
 
+
 spring:
     datasource:
         druid:
             url: ${jdbc.url}
             username: ${jdbc.username}
             password: ${jdbc.password}
-            initial-size: 5
-            max-active: 20
+            initial-size: 1
+            max-active: 5
             min-idle: 5
             max-wait: 10000
             pool-prepared-statements: true
@@ -33,13 +37,3 @@ spring:
             test-while-idle: true
             time-between-eviction-runs-millis: 60000
             min-evictable-idle-time-millis: 300000
-    kafka:
-        bootstrap-servers: ${bootstrap.servers}
-        consumer:
-            value-deserializer: xyz.ivyxjc.pubg.system.common.serialization.RawMessageDeserializer
-        producer:
-            value-serializer:  org.apache.kafka.common.serialization.StringSerializer
-
-mybatis:
-    type-aliases-package: xyz.ivyxjc.pubg.system.common.dao
-    mapper-locations: classpath:mybatis/*.xml
